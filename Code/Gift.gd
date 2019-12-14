@@ -2,10 +2,23 @@ extends Area2D
 
 #warning-ignore:unused_class_variable
 export (NodePath) var receiver
-export (Color) var color
+export (String, "Present", "Key") var type
 
 func _ready():
-	$Sprite.modulate = color
+	var vframe = global.vframes[type]
+	var hframe = global.hframes[type]
+	$Sprite.texture = global.textures[type]
+	$Sprite.vframes = vframe
+	$Sprite.hframes = hframe
+		
+	var rect = RectangleShape2D.new()
+	var sprite_size = $Sprite.texture.get_size()
+	sprite_size.y /= vframe
+	sprite_size.x /= hframe
+	sprite_size /= 2
+	rect.extents = sprite_size
+	$CollisionShape2D.shape = rect
+	
 	if receiver != "":
 		get_node(receiver).want_gift = self
 

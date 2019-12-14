@@ -31,14 +31,16 @@ func _process(_delta):
 	if held == null:
 		$"Held Item".texture = null
 	else:
-		$"Held Item".texture = held.get_node("Sprite").texture
-		$"Held Item".modulate = held.color
+		$"Held Item".texture = global.textures[held.type]
+		$"Held Item".vframes = global.vframes[held.type]
+		$"Held Item".hframes = global.hframes[held.type]
+		$"Held Item".scale = global.scales[held.type]
 	
 	if want_gift == null or held != null:
 		$"Want Bubble/Want Gift".texture = null
 		$"Want Bubble".visible = false
 	else:
 		$"Want Bubble".visible = true
-		$"Want Bubble/Want Gift".texture = want_gift.get_node("Sprite").texture
-		$"Want Bubble/Want Gift".modulate = want_gift.color
-		$"Want Bubble/Want Gift".scale = Vector2(0.7, 0.7)
+		$"Want Bubble/Want Gift".texture = global.textures[want_gift.type]
+		$"Want Bubble/Want Gift".vframes = global.vframes[want_gift.type]
+		$"Want Bubble/Want Gift".hframes = global.hframes[want_gift.type]
