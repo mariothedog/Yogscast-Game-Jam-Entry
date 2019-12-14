@@ -10,14 +10,15 @@ func _ready():
 		get_node(receiver).want_gift = self
 
 func _on_Gift_body_entered(_body):
+	if not visible: # This is done instead of disabling the collision shape so if the player drops the gift in the same location where the gift spawn the player won't pick up the gift again
+		return
+	
 	if global.hud.item != null:
 		drop_gift()
 	
 	visible = false
-	$CollisionShape2D.set_deferred("disabled", true)
 	global.hud.item = self
 
 func drop_gift():
 	global.hud.item.visible = true
-	global.hud.item.get_node("CollisionShape2D").set_deferred("disabled", false)
 	global.hud.item = null
