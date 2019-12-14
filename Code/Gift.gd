@@ -6,6 +6,8 @@ export (Color) var color
 
 func _ready():
 	$Sprite.modulate = color
+	if receiver != "":
+		get_node(receiver).want_gift = self
 
 func _on_Gift_body_entered(_body):
 	if global.hud.item != null:

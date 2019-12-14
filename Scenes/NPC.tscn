@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Code/NPC.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Art/Want Bubble.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 60 )
@@ -23,4 +24,12 @@ shape = SubResource( 1 )
 position = Vector2( 0, -90 )
 scale = Vector2( 0.7, 0.7 )
 z_index = -1
+
+[node name="Want Bubble" type="Sprite" parent="."]
+position = Vector2( 84, -80 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="Want Gift" type="Sprite" parent="Want Bubble"]
+position = Vector2( 0, -5 )
 

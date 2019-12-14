@@ -1,5 +1,7 @@
 extends Area2D
 
+var want_gift
+
 var held
 
 func _physics_process(_delta):
@@ -25,3 +27,12 @@ func _process(_delta):
 	else:
 		$"Held Item".texture = held.get_node("Sprite").texture
 		$"Held Item".modulate = held.color
+	
+	if want_gift == null or held != null:
+		$"Want Bubble/Want Gift".texture = null
+		$"Want Bubble".visible = false
+	else:
+		$"Want Bubble".visible = true
+		$"Want Bubble/Want Gift".texture = want_gift.get_node("Sprite").texture
+		$"Want Bubble/Want Gift".modulate = want_gift.color
+		$"Want Bubble/Want Gift".scale = Vector2(0.7, 0.7)
