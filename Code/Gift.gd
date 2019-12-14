@@ -1,5 +1,6 @@
 extends Area2D
 
+#warning-ignore:unused_class_variable
 export (NodePath) var receiver
 export (Color) var color
 
