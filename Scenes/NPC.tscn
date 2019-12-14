@@ -26,10 +26,11 @@ scale = Vector2( 0.7, 0.7 )
 z_index = -1
 
 [node name="Want Bubble" type="Sprite" parent="."]
-position = Vector2( 84, -80 )
+position = Vector2( 0, -90 )
 z_index = -1
 texture = ExtResource( 3 )
+offset = Vector2( 84, 10 )
 
 [node name="Want Gift" type="Sprite" parent="Want Bubble"]
-position = Vector2( 0, -5 )
+position = Vector2( 85, 3 )
 

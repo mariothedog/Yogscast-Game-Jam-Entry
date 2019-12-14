@@ -1,8 +1,14 @@
 extends Area2D
 
+export (String, "Right", "Left") var want_bubble_direction
+
 var want_gift
 
 var held
+
+func _ready():
+	if want_bubble_direction == "Left":
+		$"Want Bubble".scale.x = -1
 
 func _physics_process(_delta):
 	if global.hud.item != null and global.hud.item.receiver == "": # If the gift has no receiver the path will just be "" which will return the NPC node by default

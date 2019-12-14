@@ -23,6 +23,16 @@ func input():
 	if Input.is_action_pressed("move_left"):
 		input_x -= 1
 	
+	# Drop Gift
+	if Input.is_action_just_pressed("give_gift") and global.hud.item != null:
+		var close_to_npc = false
+		for npc in get_parent().get_node("NPCs").get_children():
+			if (position - npc.position).length() <= 90:
+				close_to_npc = true
+		
+		if not close_to_npc:
+			global.hud.item.drop_gift()
+	
 	jump = false
 	if Input.is_action_just_pressed("jump"):
 		jump = true
