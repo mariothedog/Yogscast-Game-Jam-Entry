@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var SPEED = 200
 export var GRAVITY = 500
 export var JUMP_SPEED = 400
+export var inertia = 0#100
 
 var velocity = Vector2()
 
@@ -46,19 +47,25 @@ func input():
 func movement(delta):
 	velocity.y += GRAVITY * delta
 	
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide(velocity, Vector2.UP,
+	false, 4, PI/4, false)
 	
 	if is_on_floor():
 		if jump:
 			velocity.y = -JUMP_SPEED
 		else:
 			velocity.y = min(200, velocity.y)
+	
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider.name == "Box":
+			collision.collider.apply_central_impulse(-collision.normal * inertia)
 
 func animate():
 	if velocity.x != 0:
 		$AnimatedSprite.flip_h = velocity.x < 0
 	
-	if abs(velocity.x) > 0:
+	if abs(velocity.x) > 0.1:
 		$AnimatedSprite.play("walk")
 	else:
 		$AnimatedSprite.play("idle")

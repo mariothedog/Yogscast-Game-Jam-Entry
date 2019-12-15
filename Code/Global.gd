@@ -32,6 +32,9 @@ var hud_scales = {
 
 var level = 0
 
+func _ready():
+	next_level()
+
 func next_level():
 	level += 1
 	if get_tree().change_scene("res://Scenes/Level{num}.tscn".format({"num": level})) != OK:
