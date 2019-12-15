@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Yogscast Game Jam Entry"
-run/main_scene="res://Scenes/Level.tscn"
+run/main_scene="res://Scenes/Level0.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -85,6 +85,7 @@ give_gift={
 2d_physics/layer_3="Gifts"
 2d_physics/layer_4="NPCs"
 2d_physics/layer_5="Barriers"
+2d_physics/layer_6="Doors"
 
 [rendering]
 
