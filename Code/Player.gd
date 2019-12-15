@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var SPEED = 200
 export var GRAVITY = 500
 export var JUMP_SPEED = 400
-export var inertia = 0#100
+export var inertia = 0
 
 var velocity = Vector2()
 
@@ -11,6 +11,13 @@ var jump = false
 
 func _ready():
 	global.player = self
+
+func _process(delta):
+	if global.hud.item:
+		if global.hud.item.type == "Dumbbell":
+			inertia = 100
+		else:
+			inertia = 0
 
 func _physics_process(delta):
 	input()
@@ -37,6 +44,10 @@ func input():
 		else:
 			if not close_to_npc:
 				global.hud.item.drop_gift()
+	
+	# Restart Level
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 	
 	jump = false
 	if Input.is_action_just_pressed("jump"):

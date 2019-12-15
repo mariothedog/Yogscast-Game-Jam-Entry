@@ -2,7 +2,7 @@ extends Area2D
 
 #warning-ignore:unused_class_variable
 export (NodePath) var receiver
-export (String, "Present", "Key") var type
+export (String, "Present", "Key", "Dumbbell", "Present2") var type
 
 var original_owner
 

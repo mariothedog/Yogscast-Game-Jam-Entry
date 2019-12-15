@@ -1,6 +1,7 @@
 extends Area2D
 
 export (String, "Right", "Left") var want_bubble_direction
+export (String, "Key", "Dumbbell") var give_gift
 
 var want_gift
 
@@ -14,7 +15,7 @@ func _ready():
 	
 	var gift_instance = gift_scene.instance()
 	gift_instance.position = Vector2(-100, 0) # So the player cannot see it on screen
-	gift_instance.type = "Key"
+	gift_instance.type = give_gift
 	gift_instance.original_owner = self
 	
 	held = gift_instance

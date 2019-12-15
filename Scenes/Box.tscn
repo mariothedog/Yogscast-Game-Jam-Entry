@@ -3,7 +3,7 @@
 [ext_resource path="res://Art/Objects/Box.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 20 )
+extents = Vector2( 40, 40 )
 
 [node name="Box" type="RigidBody2D"]
 collision_layer = 64
@@ -11,6 +11,7 @@ collision_mask = 19
 can_sleep = false
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
