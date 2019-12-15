@@ -4,6 +4,8 @@ extends Area2D
 export (NodePath) var receiver
 export (String, "Present", "Key") var type
 
+var original_owner
+
 func _ready():
 	var vframe = global.vframes[type]
 	var hframe = global.hframes[type]
@@ -27,11 +29,17 @@ func _on_Gift_body_entered(_body):
 		return
 	
 	if global.hud.item != null:
-		drop_gift()
+		global.hud.item.drop_gift()
 	
 	visible = false
 	global.hud.item = self
 
 func drop_gift():
+	if original_owner:
+		var offset = Vector2(50, 10)
+		if original_owner.want_bubble_direction == "Left":
+			offset.x *= -1
+		position = original_owner.position + offset
+	
 	global.hud.item.visible = true
 	global.hud.item = null

@@ -84,6 +84,7 @@ give_gift={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Gifts"
 2d_physics/layer_4="NPCs"
+2d_physics/layer_5="Barriers"
 
 [rendering]
 
