@@ -14,6 +14,7 @@ func _ready():
 func _physics_process(delta):
 	input()
 	movement(delta)
+	animate()
 
 func input():
 	var input_x = 0
@@ -49,3 +50,12 @@ func movement(delta):
 			velocity.y = -JUMP_SPEED
 		else:
 			velocity.y = min(200, velocity.y)
+
+func animate():
+	if velocity.x != 0:
+		$AnimatedSprite.flip_h = velocity.x < 0
+	
+	if abs(velocity.x) > 0:
+		$AnimatedSprite.play("walk")
+	else:
+		$AnimatedSprite.play("idle")

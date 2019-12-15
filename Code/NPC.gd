@@ -26,7 +26,7 @@ func _physics_process(_delta):
 		if global.hud.item == null: # If player is holding nothing
 			return
 		
-		if get_node(global.hud.item.receiver) == self:
+		if get_node(global.hud.item.receiver) == self and global.hud.item.type != held.type:
 			# Swap gifts
 			var old_held = held
 			held = global.hud.item

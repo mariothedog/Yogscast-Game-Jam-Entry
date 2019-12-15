@@ -21,6 +21,11 @@ var hframes = {
 }
 
 var scales = {
+	"Present": Vector2(1.1, 1.1),
+	"Key": Vector2(1.5, 1.5)
+}
+
+var hud_scales = {
 	"Present": Vector2(1.5, 1.5),
-	"Key": Vector2(1.6, 1.6)
+	"Key": Vector2(2, 2)
 }
