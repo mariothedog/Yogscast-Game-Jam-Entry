@@ -88,12 +88,10 @@ type = "Present"
 [node name="NPC" parent="NPCs" instance=ExtResource( 7 )]
 position = Vector2( 810, 510 )
 want_bubble_direction = "Left"
-give_gift = "Key"
 
 [node name="NPC2" parent="NPCs" instance=ExtResource( 7 )]
 position = Vector2( 130, 510 )
 want_bubble_direction = "Right"
-give_gift = "Key"
 
 [node name="Barriers" type="StaticBody2D" parent="."]
 collision_layer = 16

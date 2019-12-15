@@ -1,7 +1,6 @@
 extends Area2D
 
 export (String, "Right", "Left") var want_bubble_direction
-export (String, "Key", "Other") var give_gift
 
 var want_gift
 
