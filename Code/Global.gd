@@ -29,3 +29,9 @@ var hud_scales = {
 	"Present": Vector2(1.5, 1.5),
 	"Key": Vector2(2, 2)
 }
+
+var level = 0
+
+func next_level():
+	level += 1
+	get_tree().change_scene("res://Scenes/Level {num}.tscn".format({"num": level}))

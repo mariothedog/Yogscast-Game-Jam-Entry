@@ -31,8 +31,11 @@ func input():
 			if (position - npc.position).length() <= 90:
 				close_to_npc = true
 		
-		if not close_to_npc:
-			global.hud.item.drop_gift()
+		if get_parent().get_node("Door").can_enter and global.hud.item.type == "Key":
+			global.next_level()
+		else:
+			if not close_to_npc:
+				global.hud.item.drop_gift()
 	
 	jump = false
 	if Input.is_action_just_pressed("jump"):
