@@ -45,4 +45,4 @@ var level = 0
 func next_level():
 	level += 1
 	if get_tree().change_scene("res://Scenes/Level{num}.tscn".format({"num": level})) != OK:
-		pass
+		print_debug("An error occured while switching scenes at Global.gd.")

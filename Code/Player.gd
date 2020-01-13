@@ -12,7 +12,7 @@ var jump = false
 func _ready():
 	global.player = self
 
-func _process(delta):
+func _process(_delta):
 	if global.hud.item:
 		if global.hud.item.type == "Dumbbell":
 			inertia = 100
@@ -47,7 +47,8 @@ func input():
 	
 	# Restart Level
 	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
+		if get_tree().reload_current_scene() != OK:
+			print_debug("An error occured while reloading the current scene at Player.gd.")
 	
 	jump = false
 	if Input.is_action_just_pressed("jump"):
